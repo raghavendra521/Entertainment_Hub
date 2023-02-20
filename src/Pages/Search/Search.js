@@ -23,16 +23,17 @@ const Search = ()=>{
     });
 
     const fetchSearch=async ()=>{
-        console.log("api=>",`https://api.themoviedb.org/3/search/${type? "tv":"movie"}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&query=${searchText}`
+        console.log("api=>",`https://api.themoviedb.org/3/${searchText.length ? "search" : "discover"}//${type? "tv":"movie"}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&query=${searchText}`
         )
         const { data } = await axios.get(
-            `https://api.themoviedb.org/3/search/${type ? "tv" : "movie"}?api_key=${
+            `https://api.themoviedb.org/3/${searchText.length ? "search" : "discover"}/${type ? "tv" : "movie"}?api_key=${
               process.env.REACT_APP_API_KEY
             }&language=en-US&query=${searchText}&page=${page}&include_adult=false`
           );
         setContent(data.results)
-        console.log("during search=>", data, content);
         setNumOfPages(data.total_pages)
+        setSearchText('');
+        console.log("during search=>", data);
     }
 
     useEffect(()=>{
@@ -54,7 +55,8 @@ const Search = ()=>{
                         console.log("event",event);
                         setSearchText(event.target.value)
                         }
-                    }   
+                    } 
+                    value={searchText}  
                     />
                     <Button variant="contained" onClick={fetchSearch} style={{ marginLeft: 10 }}>
                         <SearchIcon fontSize="large"/>
