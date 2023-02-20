@@ -6,7 +6,8 @@ const SingleContent = ({
 })=>{
     return (
         <div className='media'>
-            <Badge badgeContent={vote_average} color={vote_average>6 ? 'primary':'secondary'}/>
+            {/* Rating of the movie */}
+            <Badge badgeContent={vote_average.toFixed(1)} color={vote_average>6 ? 'primary':'secondary'}/>
             <img className="poster" src={poster?`${img_300}/${poster}`:unavailable} alt={title}/>
             <p className='title'>{title}</p>
             <span className='subTitle'>
