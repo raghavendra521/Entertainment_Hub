@@ -8,20 +8,21 @@ import SearchIcon from '@mui/icons-material/Search';
 import TvIcon from '@mui/icons-material/Tv';
 import MovieIcon from '@mui/icons-material/LocationOn';
 import WhatshotIcon from '@mui/icons-material/Whatshot';
-import { createMuiTheme, ThemeProvider } from '@mui/material';
+import { createTheme, ThemeProvider } from '@mui/material';
+import { makeStyles } from '@material-ui/styles';
 
-// const useStyles = makeStyles({
-//   root:{
-//     width:500,
-//     position:"fixed",
-//     bottom:0,
-//     backgroundColor:"#2d313a",
-//     zIndex:100,
-//   }
-// })
+const useStyles = makeStyles({
+  root:{
+    width:"100%",
+    position:"fixed",
+    bottom:0,
+    backgroundColor:"#2d313a",
+    zIndex:100,
+  }
+});
 export default function SimpleBottomNavigation() {
-
-  const darkTheme = createMuiTheme({
+  const classes=useStyles();
+  const darkTheme = createTheme({
     palette:{
         type:"dark",
         primary:{
@@ -42,20 +43,21 @@ export default function SimpleBottomNavigation() {
 
   return (
     <ThemeProvider theme={darkTheme}>
-    <Box sx={{ width: 500 }}>
+    {/* <Box sx={{ width: 500 }}> */}
       <BottomNavigation
         showLabels
         value={value}
         onChange={(event, newValue) => {
           setValue(newValue);
         }}
+        className={classes.root}
       >
         <BottomNavigationAction style={{color:"black"}} label="Trending" icon={<WhatshotIcon />} />
         <BottomNavigationAction style={{color:"black"}} label="Movies" icon={<MovieIcon />} />
         <BottomNavigationAction style={{color:"black"}} label="TV Series" icon={<TvIcon />} />
         <BottomNavigationAction style={{color:"black"}} label="Search" icon={<SearchIcon />} />
       </BottomNavigation>
-    </Box>
+    {/* </Box> */}
     </ThemeProvider>
   );
 }
