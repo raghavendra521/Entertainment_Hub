@@ -25,7 +25,7 @@ const Series = ()=>{
     }, [page,genresforurl]);
     return (
         <div>
-            <span className="pageTitle">Series</span>
+            {/* <span className="pageTitle">Series</span> */}
             <Genres
         type="movie"
         setGenres={setGenres}

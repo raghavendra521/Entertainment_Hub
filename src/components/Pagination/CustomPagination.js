@@ -13,7 +13,7 @@ const CustomPagination = ({setPage,numOfPages=10})=>{
             justifyContent:"center",
             marginTop:10,
         }}>
-            Pagination
+            {/* Pagination */}
             <Pagination count={numOfPages} onChange={(e)=>handlePageChange(e.target.textContent)} color="primary"/>
         </div>
     );

@@ -13,7 +13,6 @@ function App() {
     <BrowserRouter>
       <Header />
       <div className="app">
-        feff
         <Container>
           <Routes>
             <Route path="/" element={<Trending/>} exact />

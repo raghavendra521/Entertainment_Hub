@@ -38,7 +38,7 @@ const Search = ()=>{
         <div>
             <ThemeProvider theme={darkTheme}>
                 <div style={{display:"flex",margin:"15px 0"}}>
-                    <span className="pageTitle">Search</span>
+                    {/* <span className="pageTitle">Search</span> */}
                     <TextField
                     style={{flex:1}}
                     className="searchBox"

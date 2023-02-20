@@ -11,6 +11,7 @@ const Trending = () => {
     const { data } = await axios.get(
       `https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.REACT_APP_API_KEY}`
     );
+    console.log('trending=>',data);
     setContent(data.results);
     setNumOfPages(data.total_pages)
   };
@@ -20,7 +21,7 @@ const Trending = () => {
   },[page]);
   return (
     <div>
-      <span className="pageTitle">Trending</span>
+      {/* <span className="pageTitle">Trending</span> */}
       <div className="trending">
         {content &&
           content.map((c) => (
